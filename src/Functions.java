@@ -12,9 +12,10 @@ public class Functions {
         return solve(n - 1) + solve(n - 3) + solve(n - 5);
     }
 
+    private static int n = 1;
     // Write the arrangements of {1,3,5} to reach N using memoization
-    int dp = new int[n + 1];
-    public static int solve(int n) {
+    static int[] dp = new int[n + 1];
+    public static int solveDp(int n) {
         // base case
         if (n < 0)
             return 0;
@@ -26,6 +27,6 @@ public class Functions {
             return dp[n];
 
         // Storing the result and returning
-        return dp[n] = solve(n - 1) + solve(n - 3) + solve(n - 5);
+        return dp[n] = solveDp(n - 1) + solveDp(n - 3) + solveDp(n - 5);
     }
 }
